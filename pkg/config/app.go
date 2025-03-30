@@ -7,15 +7,15 @@ import (
 
 var db *gorm.DB
 
-func connect() {
+func Connect() {
 	dsn := "netesh:test@123/bookstore?charset=utf8&parseTime=True&loc=Local"
-	d, err := gorm.Open(mysql.Open(dsn))
+	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
 	db = d
 }
 
-func getDB() *gorm.DB {
+func GetDB() *gorm.DB {
 	return db
 }

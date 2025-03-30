@@ -1,6 +1,8 @@
 package models
 
 import (
+	"book_store/pkg/config"
+
 	"gorm.io/gorm"
 )
 
@@ -9,13 +11,12 @@ var db *gorm.DB
 type Book struct {
 	gorm.Model
 
-	name        string `gorm:"json:name"`
-	author      string `json:"author"`
-	publication string `json:"publication"`
+	Name        string `gorm:"json:name"`
+	Author      string `json:"author"`
+	Publication string `json:"publication"`
 }
 
 func init() {
-	config.connect()
-	db = config.getDB()
-
+	config.Connect()
+	db = config.GetDB()
 }
