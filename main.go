@@ -2,6 +2,7 @@ package main
 
 import (
 	"book_store/pkg/routes"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -13,8 +14,10 @@ func main() {
 
 	routes.BookstoreRoutes(r)
 	http.Handle("/", r)
-	err := http.ListenAndServe(":9010", r)
+	fmt.Println("Serving Running on port : 8080")
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }

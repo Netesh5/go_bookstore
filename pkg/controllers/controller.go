@@ -10,8 +10,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var newBooks models.Book
-
 func GetBooks(w http.ResponseWriter, r *http.Request) {
 	newBook := models.GetAllBooks()
 	res, _ := json.Marshal(newBook)

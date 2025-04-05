@@ -8,7 +8,8 @@ import (
 var db *gorm.DB
 
 func Connect() {
-	dsn := "netesh:test@123/bookstore?charset=utf8&parseTime=True&loc=Local"
+	// dsn := "netesh:test123/bookstore?charset=utf8&parseTime=True&loc=Local"
+	dsn := "netesh:test123@tcp(localhost:3306)/bookstore?charset=utf8&parseTime=True&loc=Local"
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
