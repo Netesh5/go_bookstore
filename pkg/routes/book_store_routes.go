@@ -1,11 +1,15 @@
 package routes
 
-import "github.com/gorilla/mux"
+import (
+	"book_store/pkg/controllers"
+
+	"github.com/gorilla/mux"
+)
 
 var BookstoreRoutes = func(router *mux.Router) {
-	router.HandleFunc("/books/", controllers.getBooks).Methods("GET")
-	router.HandleFunc("/books/", controllers.createBook).Methods("POST")
-	router.HandleFunc("/books/{bookId}", controllers.getBook).Methods("GET")
-	router.HandleFunc("/books/{bookId}", controllers.updateBook).Methods("PUT")
-	router.HandleFunc("/books/{bookId}", controllers.deleteBook).Methods("DELETE")
+	router.HandleFunc("/books/", controllers.GetBooks).Methods("GET")
+	router.HandleFunc("/books/", controllers.CreateBook).Methods("POST")
+	router.HandleFunc("/books/{bookId}", controllers.GetBookByID).Methods("GET")
+	router.HandleFunc("/books/{bookId}", controllers.UpdateBook).Methods("PUT")
+	router.HandleFunc("/books/{bookId}", controllers.DeleteBook).Methods("DELETE")
 }
